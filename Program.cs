@@ -1,5 +1,6 @@
 ﻿using Budget.Banks.Monzo;
-using Budget.Entities;
+using Budget.Internal.Entities;
+using Budget.Internal.Services;
 
 MonzoParser parser = new();
 
@@ -10,5 +11,6 @@ Console.WriteLine($"Found {monzoTransactions.Count} payments");
 
 foreach (TransactionRecord payment in monzoTransactions)
 {
-    Console.WriteLine($"{payment.TransactionDate} {payment.Description} {payment.Amount}");
+    TransactionRecordService.ApplyCategory(payment);
+    Console.WriteLine($"{payment.TransactionDate} {payment.Description} {payment.Amount} {payment.Category}");
 }

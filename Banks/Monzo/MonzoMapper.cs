@@ -1,4 +1,4 @@
-using Budget.Entities;
+using Budget.Internal.Entities;
 
 namespace Budget.Banks.Monzo
 {
