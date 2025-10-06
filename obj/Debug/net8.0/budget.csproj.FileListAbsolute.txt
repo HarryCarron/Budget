@@ -16,3 +16,4 @@
 /home/hcarr/Documents/csharp/budget/bin/Debug/net8.0/CsvHelper.dll
 /home/hcarr/Documents/csharp/budget/obj/Debug/net8.0/budget.csproj.AssemblyReference.cache
 /home/hcarr/Documents/csharp/budget/obj/Debug/net8.0/budget.csproj.Up2Date
+/home/hcarr/Documents/csharp/budget/obj/Debug/net8.0/budget.sourcelink.json

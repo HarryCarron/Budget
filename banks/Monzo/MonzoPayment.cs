@@ -1,6 +1,6 @@
-namespace Monzo
+namespace Budget.Banks.Monzo
 {
-    public class MonzoPayment
+    public class MonzoTransaction
     {
         public string? Date { get; set; }
         public string? Time { get; set; }

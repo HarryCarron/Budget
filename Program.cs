@@ -1,13 +1,14 @@
-﻿using Monzo;
+﻿using Budget.Banks.Monzo;
+using Budget.Entities;
 
 MonzoParser parser = new();
 
 parser.SetStatement("test.csv");
-List<MonzoPayment> monzoPayments = parser.Parse();
+List<TransactionRecord> monzoTransactions = parser.Parse();
 
-Console.WriteLine($"Found {monzoPayments.Count} payments");
+Console.WriteLine($"Found {monzoTransactions.Count} payments");
 
-foreach (MonzoPayment payment in monzoPayments)
+foreach (TransactionRecord payment in monzoTransactions)
 {
-    Console.WriteLine($"{payment.Date} {payment.Time} {payment.Name} {payment.Amount}");
+    Console.WriteLine($"{payment.TransactionDate} {payment.Description} {payment.Amount}");
 }

@@ -1,4 +1,4 @@
-namespace Budget
+namespace Budget.Entities
 {
     public class TransactionRecord
     {
@@ -6,4 +6,5 @@ namespace Budget
         public string Description { get; set; } = string.Empty;
         public decimal Amount { get; set; } = 0;
     }
+
 }

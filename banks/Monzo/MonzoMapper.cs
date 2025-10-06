@@ -1,18 +1,18 @@
-using Budget;
+using Budget.Entities;
 
-namespace Monzo
+namespace Budget.Banks.Monzo
 {
     public class MonzoMapper
     {
-        public static TransactionRecord ToTransactionRecord(MonzoPayment payment)
+        public static TransactionRecord ToTransactionRecord(MonzoTransaction transaction)
         {
-            string dateTimeStr = $"{payment.Date} {payment.Time}";
+            string dateTimeStr = $"{transaction.Date} {transaction.Time}";
             DateTime dateTime = DateTime.Parse(dateTimeStr);
             return new TransactionRecord
             {
                 TransactionDate = dateTime,
-                Description = payment.Name!,
-                Amount = decimal.Parse(payment.Amount!)
+                Description = transaction.Name!,
+                Amount = decimal.Parse(transaction.Amount!)
             };
         }
     }
