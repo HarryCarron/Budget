@@ -1,16 +1,21 @@
-﻿using Budget.Banks.Monzo;
+﻿using Budget.BankIntegrations.Monzo;
+using Budget.BankIntegrations.Lloyds;
 using Budget.Internal.Entities;
 using Budget.Internal.Services;
 
-MonzoParser parser = new();
+MonzoParser monzoParser = new();
+LloydsParser lloydsParser = new();
 
-parser.SetStatement("test.csv");
-List<TransactionRecord> monzoTransactions = parser.Parse();
-
-Console.WriteLine($"Found {monzoTransactions.Count} payments");
-
+IEnumerable<TransactionRecord> monzoTransactions = monzoParser.Init();
 foreach (TransactionRecord payment in monzoTransactions)
 {
     TransactionRecordService.ApplyCategory(payment);
     Console.WriteLine($"{payment.TransactionDate} {payment.Description} {payment.Amount} {payment.Category}");
 }
+
+// IEnumerable<TransactionRecord> lloydsTransactions = lloydsParser.Init();
+// foreach (TransactionRecord payment in lloydsTransactions)
+// {
+//     TransactionRecordService.ApplyCategory(payment);
+//     Console.WriteLine($"{payment.TransactionDate} {payment.Description} {payment.Amount} {payment.Category}");
+// }

@@ -1,10 +1,11 @@
 using Budget.Internal.Entities;
+using Budget.Interfaces;
 
-namespace Budget.Banks.Monzo
+namespace Budget.BankIntegrations.Monzo
 {
-    public class MonzoMapper
+    public class MonzoMapper: ITransactionMapper<MonzoTransaction>
     {
-        public static TransactionRecord ToTransactionRecord(MonzoTransaction transaction)
+        public TransactionRecord ToTransactionRecord(MonzoTransaction transaction)
         {
             string dateTimeStr = $"{transaction.Date} {transaction.Time}";
             DateTime dateTime = DateTime.Parse(dateTimeStr);
